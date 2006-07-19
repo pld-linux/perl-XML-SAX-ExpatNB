@@ -20,20 +20,22 @@ BuildRequires:	perl-XML-SAX >= 0.03
 BuildRequires:	perl(XML::SAX::Base) >= 1.00
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with autodeps} || %{with tests}
+BuildRequires:	perl-Test-Distribution
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is an implementation of a SAX2 driver sitting on top of Expat
+This is an non blocking implementation of a SAX2 driver sitting on top of Expat
 (XML::Parser).
 
 %description -l pl
-To jest implementacja sterownika SAX2 w oparciu o modu³ Expat
+To jest niebokujaca implementacja sterownika SAX2 w oparciu o modu³ Expat
 (XML::Parser).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-
 
 %build
 %{__perl} Makefile.PL \
@@ -45,7 +47,7 @@ To jest implementacja sterownika SAX2 w oparciu o modu³ Expat
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -53,16 +55,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 umask 022
-%{__perl} -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::Expat))->save_parsers()"
+%{__perl} -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::ExpatNB))->save_parsers()"
 
 %postun
 if [ "$1" = "0" ]; then
 	umask 022
-	%{__perl} -MXML::SAX -e "XML::SAX->remove_parser(q(XML::SAX::Expat))->save_parsers()"
+	%{__perl} -MXML::SAX -e "XML::SAX->remove_parser(q(XML::SAX::ExpatNB))->save_parsers()"
 fi
 
 %files
 %defattr(644,root,root,755)
-%doc Changes
-%{perl_vendorlib}/XML/SAX/Expat.pm
+#%%doc Changes
+%{perl_vendorlib}/XML/SAX/ExpatNB.pm
 %{_mandir}/man3/*
