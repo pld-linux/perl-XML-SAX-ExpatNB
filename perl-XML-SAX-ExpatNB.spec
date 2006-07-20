@@ -5,7 +5,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	SAX-ExpatNB
-Summary:	XML::SAX::ExpatNB - SAX2 driver for Expat (XML::Parser)
+Summary:	XML::SAX::ExpatNB - non-blocking filehandle oriented XML::SAX parser
+Summary(pl):	XML::SAX::ExpatNB - nieblokuj±cy zorientowany na uchwyty plików analizator XML::SAX
 Name:		perl-XML-SAX-ExpatNB
 Version:	0.01
 Release:	0.1
@@ -14,25 +15,26 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	335735a0408272ba20addba8e7005bcc
+URL:		http://search.cpan.org/dist/XML-SAX-ExpatNB/
 BuildRequires:	perl-XML-NamespaceSupport >= 0.03
 BuildRequires:	perl-XML-Parser >= 2.27
 BuildRequires:	perl-XML-SAX >= 0.03
 BuildRequires:	perl(XML::SAX::Base) >= 1.00
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with autodeps} || %{with tests}
+%if %{with tests}
 BuildRequires:	perl-Test-Distribution
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is an non blocking implementation of a SAX2 driver sitting on top of Expat
-(XML::Parser).
+This is an non blocking implementation of a SAX2 driver sitting on top
+of Expat (XML::Parser).
 
 %description -l pl
-To jest niebokujaca implementacja sterownika SAX2 w oparciu o modu³ Expat
-(XML::Parser).
+To jest nieblokujaca implementacja sterownika SAX2 w oparciu o modu³
+Expat (XML::Parser).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -65,6 +67,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-#%%doc Changes
 %{perl_vendorlib}/XML/SAX/ExpatNB.pm
 %{_mandir}/man3/*
