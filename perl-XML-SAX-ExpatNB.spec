@@ -9,7 +9,7 @@ Summary:	XML::SAX::ExpatNB - non-blocking filehandle oriented XML::SAX parser
 Summary(pl):	XML::SAX::ExpatNB - nieblokuj±cy zorientowany na uchwyty plików analizator XML::SAX
 Name:		perl-XML-SAX-ExpatNB
 Version:	0.01
-Release:	0.1
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
