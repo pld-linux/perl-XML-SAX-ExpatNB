@@ -6,7 +6,7 @@
 %define		pdir	XML
 %define		pnam	SAX-ExpatNB
 Summary:	XML::SAX::ExpatNB - non-blocking filehandle oriented XML::SAX parser
-Summary(pl.UTF-8):   XML::SAX::ExpatNB - nieblokujący zorientowany na uchwyty plików analizator XML::SAX
+Summary(pl.UTF-8):	XML::SAX::ExpatNB - nieblokujący zorientowany na uchwyty plików analizator XML::SAX
 Name:		perl-XML-SAX-ExpatNB
 Version:	0.01
 Release:	1
