@@ -6,7 +6,7 @@
 %define		pdir	XML
 %define		pnam	SAX-ExpatNB
 Summary:	XML::SAX::ExpatNB - non-blocking filehandle oriented XML::SAX parser
-Summary(pl):	XML::SAX::ExpatNB - nieblokuj±cy zorientowany na uchwyty plików analizator XML::SAX
+Summary(pl.UTF-8):   XML::SAX::ExpatNB - nieblokujÄ…cy zorientowany na uchwyty plikÃ³w analizator XML::SAX
 Name:		perl-XML-SAX-ExpatNB
 Version:	0.01
 Release:	1
@@ -32,8 +32,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is an non blocking implementation of a SAX2 driver sitting on top
 of Expat (XML::Parser).
 
-%description -l pl
-To jest nieblokujaca implementacja sterownika SAX2 w oparciu o modu³
+%description -l pl.UTF-8
+To jest nieblokujaca implementacja sterownika SAX2 w oparciu o moduÅ‚
 Expat (XML::Parser).
 
 %prep
